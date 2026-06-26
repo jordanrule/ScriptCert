@@ -23,6 +23,8 @@ The current pearl models a tiny JavaScript-like expression language:
 - subtraction (`a - b`)
 - multiplication (`a * b`)
 - unary negation (`-a`)
+- optional chaining on `some(...)` wrappers (`receiver?.value` as `opt_chain`)
+- pattern matching with constant branch results (`match`)
 
 The compiler translates expressions into a stack-machine program.
 
@@ -40,6 +42,8 @@ This is the central semantic-preservation theorem for this miniature compiler.
 - `tests/test_scriptcert.py`: regression and property-style checks over sample trees.
 - `docs/COMPCERT_NOTES.md`: CompCert best-practice notes used in this pearl.
 - `docs/TC39_NOTES.md`: TC39 process notes plus the feature-trace matrix.
+- `THIRD_PARTY_NOTICES.md`: third-party standards/process attributions.
+- `LICENSE`: GPL licensing for this repository.
 
 ## TC39 feature-trace matrix
 
@@ -48,8 +52,8 @@ Canonical matrix: `docs/TC39_NOTES.md`
 | Feature | ScriptCert status | Proof status |
 | --- | --- | --- |
 | Arithmetic expressions (`Number`, `+`, `-`, `*`, unary `-`) | Implemented | `compile_correct` proved |
-| Optional chaining (`?.`) | Planned | Not started |
-| Pattern matching | Planned | Not started |
+| Optional chaining (`?.`) | Implemented (pearl subset) | `compile_correct` proved |
+| Pattern matching | Implemented (constant-result pearl subset) | `compile_correct` proved |
 
 ## Quick start
 
@@ -62,8 +66,13 @@ python3 -m unittest discover -s tests -v
 Try the CLI:
 
 ```bash
-python3 src/main.py --expr '["sub", ["mul", 3, ["add", 4, 1]], ["neg", 2]]'
+python3 src/main.py --expr '["match", ["opt_chain", ["some", ["add", 3, 4]]], [[["num", 7], 10], ["undef", 20], ["_", -1]], 0]'
 ```
+
+Expression forms currently supported:
+- arithmetic: `add`, `sub`, `mul`, `neg`
+- optional chaining subset: `some`, `opt_chain`
+- pattern matching subset: `match` with arms `[[pattern, constantValue], ...]`
 
 Expected output includes:
 - source evaluation result,
@@ -89,3 +98,8 @@ This project starts from the behavior we want to preserve, not from optimization
 4. We prove, by induction on syntax, that the meanings agree.
 
 That is the same high-level discipline used by CompCert, scaled down to a JavaScript-focused pearl that can evolve with TC39-driven language design.
+
+## License
+
+This project is licensed under the GNU General Public License. See `LICENSE`.
+

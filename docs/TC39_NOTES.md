@@ -9,7 +9,7 @@ A verified JavaScript compiler should track the way JavaScript evolves. TC39's p
 ## How this prototype aligns
 
 1. **Explicit scope**
-   - This pearl verifies only arithmetic expressions.
+   - This pearl verifies arithmetic plus small optional-chaining/pattern-matching subsets.
    - A narrow scope keeps proofs maintainable as the language grows.
 
 2. **Traceable evolution**
@@ -30,7 +30,7 @@ This table tracks how language features map into ScriptCert artifacts and proof 
 | Feature | TC39 link | Stage snapshot | ScriptCert status | Spec/code refs | Proof status | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | Arithmetic expressions (`Number`, `+`, `-`, `*`, unary `-`) | Baseline ECMAScript (no active proposal link) | Included in standard | Implemented | `coq/JsPearl.v`, `src/scriptcert.py` | `compile_correct` proved | Current verified core |
-| Optional chaining (`?.`) | https://github.com/tc39/proposals/ | See tracker | Planned | TBD (`coq/js/`, `src/`) | Not started | Add short-circuit semantics first |
-| Pattern matching | https://github.com/tc39/proposals/ | See tracker | Planned | TBD (`coq/js/`, `src/`) | Not started | Likely requires richer AST and match semantics |
+| Optional chaining (`?.`) | https://github.com/tc39/proposal-optional-chaining | Standardized (ES2020) | Implemented (subset) | `coq/JsPearl.v`, `src/scriptcert.py` | `compile_correct` proved | Modeled as `some`/`opt_chain` for short-circuit behavior |
+| Pattern matching | https://github.com/tc39/proposal-pattern-matching | Proposal stage tracked in repo | Implemented (constant-result subset) | `coq/JsPearl.v`, `src/scriptcert.py` | `compile_correct` proved | Matches values to constant branch results |
 
 Stages change over time; this matrix treats the TC39 repository as the source of truth.
