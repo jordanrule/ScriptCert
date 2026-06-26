@@ -20,6 +20,9 @@ It also mirrors the spirit of [TC39 proposals](https://github.com/tc39/proposals
 The current pearl models a tiny JavaScript-like expression language:
 - numbers (`42`)
 - addition (`a + b`)
+- subtraction (`a - b`)
+- multiplication (`a * b`)
+- unary negation (`-a`)
 
 The compiler translates expressions into a stack-machine program.
 
@@ -44,7 +47,7 @@ Canonical matrix: `docs/TC39_NOTES.md`
 
 | Feature | ScriptCert status | Proof status |
 | --- | --- | --- |
-| Arithmetic expressions (`Number`, `+`) | Implemented | `compile_correct` proved |
+| Arithmetic expressions (`Number`, `+`, `-`, `*`, unary `-`) | Implemented | `compile_correct` proved |
 | Optional chaining (`?.`) | Planned | Not started |
 | Pattern matching | Planned | Not started |
 
@@ -59,7 +62,7 @@ python3 -m unittest discover -s tests -v
 Try the CLI:
 
 ```bash
-python3 src/main.py --expr '["add", 2, ["add", 3, 4]]'
+python3 src/main.py --expr '["sub", ["mul", 3, ["add", 4, 1]], ["neg", 2]]'
 ```
 
 Expected output includes:

@@ -11,7 +11,7 @@ def main() -> None:
     parser.add_argument(
         "--expr",
         required=True,
-        help='Expression in JSON list form, e.g. ["add", 2, ["add", 3, 4]]',
+        help='Expression JSON. Examples: ["add",2,["mul",3,4]], ["sub",10,3], ["neg",5]',
     )
     args = parser.parse_args()
 

@@ -1,0 +1,10 @@
+# Prefer proof artifacts for GitHub language stats.
+*.v linguist-language=Coq
+
+# Keep support/runtime code out of primary language breakdown.
+*.py linguist-detectable=false
+
+# Docs and tests should not influence language percentages.
+docs/** linguist-documentation=true
+tests/** linguist-detectable=false
+

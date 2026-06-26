@@ -29,7 +29,7 @@ This table tracks how language features map into ScriptCert artifacts and proof 
 
 | Feature | TC39 link | Stage snapshot | ScriptCert status | Spec/code refs | Proof status | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| Arithmetic expressions (`Number`, `+`) | Baseline ECMAScript (no active proposal link) | Included in standard | Implemented | `coq/JsPearl.v`, `src/scriptcert.py` | `compile_correct` proved | Current verified core |
+| Arithmetic expressions (`Number`, `+`, `-`, `*`, unary `-`) | Baseline ECMAScript (no active proposal link) | Included in standard | Implemented | `coq/JsPearl.v`, `src/scriptcert.py` | `compile_correct` proved | Current verified core |
 | Optional chaining (`?.`) | https://github.com/tc39/proposals/ | See tracker | Planned | TBD (`coq/js/`, `src/`) | Not started | Add short-circuit semantics first |
 | Pattern matching | https://github.com/tc39/proposals/ | See tracker | Planned | TBD (`coq/js/`, `src/`) | Not started | Likely requires richer AST and match semantics |
 
