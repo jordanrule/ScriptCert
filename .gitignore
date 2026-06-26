@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.coq-native/
+*.glob
+*.vo
+*.vok
+*.vos
+
