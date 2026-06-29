@@ -43,7 +43,7 @@ This is the central semantic-preservation theorem for this miniature compiler.
 - `docs/COMPCERT_NOTES.md`: CompCert best-practice notes used in this pearl.
 - `docs/TC39_NOTES.md`: TC39 process notes plus the feature-trace matrix.
 - `THIRD_PARTY_NOTICES.md`: third-party standards/process attributions.
-- `LICENSE`: GPL licensing for this repository.
+- `LICENSE`: canonical GNU GPL v3.0-or-later licensing for this repository.
 
 ## TC39 feature-trace matrix
 
@@ -101,5 +101,5 @@ That is the same high-level discipline used by CompCert, scaled down to a JavaSc
 
 ## License
 
-This project is licensed under the GNU General Public License. See `LICENSE`.
+This project is licensed under the GNU General Public License, version 3 or any later version. See `LICENSE`.
 

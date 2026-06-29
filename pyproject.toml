@@ -2,7 +2,7 @@
 name = "scriptcert-pearl"
 version = "0.1.0"
 description = "A tiny formally verified JavaScript-compiler pearl"
-license = { text = "GPL-3.0-or-later" }
+license = { file = "LICENSE" }
 requires-python = ">=3.10"
 dependencies = []
 
